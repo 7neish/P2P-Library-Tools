@@ -1,32 +1,23 @@
 <?php
-require_once 'member.php';
-class MaintenanceTechnician extends Member{
+require_once 'user.php';
+class MaintenanceTechnician extends User{
     public $techId;
-    public $name;
     public $specialty;
     public $technicianRole;
-    public $sumOfRepairTimes;
-    public $noOfSuccessfulRepairs;
-    public $noOfTotalRepairs;
-    public $noOfRepairs;
-    public $averageRepairTime;
-    public $FirstTimeSuccessRate;
+    public $sumOfRepairTimes = 0;
+    public $noOfSuccessfulRepairs = 0;
+    public $noOfTotalRepairs = 0;
+    public $noOfRepairs = 0;
+    public $averageRepairTime = 0;
+    public $FirstTimeSuccessRate = 0;
 
-    public function __construct($id, $membershipType, $password, $name, $email, $phones, $address, $tierId, $roleId, 
-    $trustScore, $location, $techId, $specialty, $technicianRole){
-        parent::__construct($membershipType, $password, $name, $email, $phones, $address, $tierId, $roleId, $trustScore, $location);
+    public function __construct($id, $password, $name, $email, $phones, $address, $roleId, $location, $techId, $specialty, $technicianRole){
+        parent::__construct($id, $password, $name, $email, $phones, $address, $roleId, $location);
         $this->techId=$techId;
         $this->specialty=$specialty;
         $this->technicianRole=$technicianRole;
-        $this->sumOfRepairTimes=0;
-        $this->noOfSuccessfulRepairs=0;
-        $this->noOfTotalRepairs=0;
-        $this->noOfRepairs=0;
-        $this->averageRepairTime=0;
-        $this->FirstTimeSuccessRate=0;
     }
     public function verifyIdentity()
-    public function upgradeMembership()
     public function completeToolRepair()
     public function closeRepairOrder()
     public function updateDashboard()

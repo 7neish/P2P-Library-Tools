@@ -1,11 +1,10 @@
 <?php 
-require_once 'member.php';
-class MaintenanceManager extends Member{
-    public function __construct($id, $membershipType, $password, $name, $email, $phones, $address, $tierId, $roleId, $trustScore, $location){
-      parent::__construct($membershipType, $password, $name, $email, $phones, $address, $tierId, $roleId, $trustScore, $location);  
+require_once 'user.php';
+class MaintenanceManager extends User{
+    public function __construct($id, $password, $name, $email, $phones, $address, $roleId, $location){
+      parent::__construct($id, $password, $name, $email, $phones, $address, $roleId, $location);  
     }
     public function verifyIdentity()
-    public function upgradeMembership()
     public function openPerformanceReport()
     public function useReportToIdentifyTechniciansWhoNeedAdditionalTraining()
     public function update()

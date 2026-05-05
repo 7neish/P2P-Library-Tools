@@ -183,4 +183,3 @@ class Rental implements ISubject {
     public function calculateTotalCost(IPricingStrategy $strategy):float{}    
 }
 
-?>

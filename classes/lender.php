@@ -4,17 +4,16 @@ class Lender extends Member{
     private $tools=[];
     public $listedToolsCount;
     public $totalEarnings;
-    public $feedback;
+    public $feedback=[];
 
-    public function __construct($id, $membershipType, $password, $name, $email, $phones, $address, $tierId, $roleId, $trustScore, $location){
-        parent::__construct($membershipType, $password, $name, $email, $phones, $address, $tierId, $roleId, $trustScore, $location);
+    public function __construct($id, $password, $name, $email, $phones, $address, $roleId, $location, $membershipType){
+        parent::__construct($id, $password, $name, $email, $phones, $address, $roleId, $location, $membershipType);
         $this->listedToolsCount=0;
         $this->totalEarnings=0;
-        $this->feedback=[];
     }
     public function verifyIdentity()
     public function upgradeMembership()
-    public function gettools(){
+    public function getTools(){
         return $this->tools;
     }
     public function setTools($tool){

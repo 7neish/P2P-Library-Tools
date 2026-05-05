@@ -1,29 +1,11 @@
-<?php 
-abstract class Member{
-    protected $id;
+<?php
+require_once 'user.php'; 
+abstract class Member extends User{
     protected $membershipType;
-    protected $password;
-    protected $name;
-    protected $email;
-    protected $phones;
-    protected $address;
-    protected $tierId;
-    protected $roleId;
-    protected $trustScore;
-    protected $location;
 
-    public function __construct($id, $membershipType, $password, $name, $email, $phones, $address, $tierId, $roleId, $trustScore, $location){
-        $this->id=$id;
+    public function __construct($id, $password, $name, $email, $phones, $address, $roleId, $location, $membershipType){
+        parent::__construct($id, $password, $name, $email, $phones, $address, $roleId, $location);
         $this->membershipType=$membershipType;
-        $this->password=$password;
-        $this->name=$name;
-        $this->email=$email;
-        $this->phones=$phones;
-        $this->address=$address;
-        $this->tierId=$tierId;
-        $this->roleId=$roleId;
-        $this->trustScore=$trustScore;
-        $this->location=$location;
     }
     abstract public function verifyIdentity();
     abstract public function upgradeMembership();

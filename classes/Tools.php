@@ -3,6 +3,7 @@ class Tool {
     public float $toolPrice;
       public string $name;
             public float $longitude;
+            public float $latitude;
                 private Lender $lender;
     public string $toolStatus;
 
@@ -15,19 +16,20 @@ class Tool {
     public array $confirmedReservation = [];
     private bool $available;
  
-      public function __construct(float $toolPrice, string $name, float $longitude, Owner $owner) {
+      public function __construct(float $toolPrice, string $name, float $longitude,float $latitude, Lender $lender) {
         $this->toolPrice = $toolPrice;
         $this->name = $name;
         $this->longitude = $longitude;
-        $this->owner = $owner;
+        $this->latitude = $latitude;        
+        $this->lender = $lender;
         $this->available = true;
         $this->toolStatus = "Available";
     }
 
 
 
-    
-    
+  
+
     public function markAvailable();
     
     public function markUnavailable();
@@ -54,10 +56,10 @@ class Tool {
 
     }
 
-    public function getOwner(): Owner { return $this->owner; }
+    public function getLender(): Lender { return $this->lender; }
    
-    public function setOwner(Owner $owner): void {
-        $this->owner = $owner;
+    public function setLender(Lender $lender): void {
+        $this->Lender = $lender;
     }
 
 
